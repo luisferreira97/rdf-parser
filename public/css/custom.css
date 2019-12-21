@@ -1,0 +1,137 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+}
+
+/* INDEX */
+
+.page {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.page .header {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.page .rules {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.hljs {
+  background: white !important;
+}
+
+pre {
+  margin: 0 !important;
+  width: 100%;
+}
+.page .diagram {
+  grid-area: 2 / 2 / 3 / 2;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  resize: none;
+  border-radius: 0.25rem;
+  font-family: "Lucida Console", monospace;
+  font-size: 1rem;
+  line-height: 1.2;
+  border: 1px solid var(--info);
+}
+
+.page .footer1 {
+  grid-area: 3 / 1 / 4 / 3;
+  color: var(--dark);
+  opacity: 0.6;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+td {
+  vertical-align: middle;
+}
+
+#spinner:not([hidden]) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-color: var(--light);
+  opacity: 0.8;
+}
+
+#spinner::after {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid var(--info);
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear;
+  z-index: 9999;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#imgMenu {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+} 
+
+#codeBox {
+  display: flex;
+  flex: 1;
+  resize: none;
+  border-radius: 0.25rem;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 1rem;
+  line-height: 1.2;
+  border: 1px solid var(--info);
+  background-color: white;
+}
+
+#imgBox {
+  resize: none;
+  border-radius: 0.25rem;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 1rem;
+  line-height: 1.2;
+  overflow-y: scroll;
+  white-space: nowrap; 
+}
+
+#rules {
+  border: 1px solid var(--info);
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}

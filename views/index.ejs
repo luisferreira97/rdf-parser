@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Semantic Web</title>
+
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom Page CSS -->
+  <link rel="stylesheet" type="text/css" href="/css/theme.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+  <!-- Highlight JS STuff -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+
+</head>
+
+<body class="body px-4" onload="init()">
+  <!-- this will show our spinner -->
+  <div hidden id="spinner"></div>
+  <div class="page">
+    <header class="header">
+      <nav class="navbar navbar-transparent text-primary navbar-expand-sm p-0 m-0">
+        <div class="container-fluid p-0 m-0">
+          <div class="navbar-translate">
+            <a class="navbar-brand" href="/">🔥 RDF Parser</a>
+          </div>
+          <div class="collapse navbar-collapse" id="example-navbar-transparent">
+            <ul class="navbar-nav ml-auto">
+              <!-- <li class="nav-item mr-2">
+                <input type="text" class="form-control" id="projectName" aria-describedby="projectName"
+                  placeholder="Enter project name">
+              </li> -->
+              <li class="nav-item">
+                <a class="btn btn-info btn-lg m-0 text-white" id="rdfRequest">Submit!</a>
+                <a class="btn btn-info btn-lg m-0 text-white" href="/" id="refresh" hidden>Reset</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="rules">
+      <h5 class="text-secondary">Properties </h5>
+      <div id="rules" class="mb-4">
+        <form id="rdf-options">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="lang">Input Language</label>
+              <select id="lang" class="form-control">
+                <option selected value="eng">English</option>
+                <option value="de">German</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="type">Input Format</label>
+              <select id="type" class="form-control">
+                <option selected value="text">Text/HTML</option>
+                <option value="url">URL</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputArea">Paste your input here</label>
+            <textarea class="form-control" id="inputArea" rows="5"
+              placeholder="The philosopher and mathematician Leibniz was born in Leipzig in 1646 and attended the University of Leipzig from 1661-1666.">The philosopher and mathematician Leibniz was born in Leipzig in 1646 and attended the University of Leipzig from 1661-1666.</textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="output">Output format</label>
+              <select id="output" class="form-control">
+                <option selected value="RDF/XML" data-img="xml">RDF/XML</option>
+                <option value="Turtle" data-img="ttl">Turtle</option>
+                <option value="RDF/JSON" data-img="json">RDF/JSON</option>
+                <option value="JSON-LD" data-img="">JSON-LD</option>
+                <option value="TriG" data-img="trig">TriG</option>
+                <option value="N-Quads" data-img="nq">N-Quads</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="foxLight">Fox Light</label>
+              <select id="foxLight" class="form-control">
+                <option selected>BalieEN</option>
+                <option>IllinoisExtendedEN</option>
+                <option>OpenNLPEN</option>
+                <option>StanfordEN</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="task">Extraction Type</label>
+              <select id="task" class="form-control">
+                <option selected>ner</option>
+                <option>re</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <h5 class="text-secondary pb-2">Output </h5>
+      <div id="codeBox">
+        <pre ><code id="foxCode"></code></pre>
+      </div>
+    </section>
+    <section class="diagram m-0 h-100" id="imgContainer">
+      <h5 class="text-secondary p-2">RDF Data Graph Visualization </h5>
+      <div id="imgMenu" hidden>
+        <a class="btn btn-info btn-sm m-0 text-white" onclick="openInNewTab()">Open Fullscreen</a>
+        <a class="btn btn-info btn-sm m-0 text-white" onclick="saveImg()">Save Image</a>
+      </div>
+    </section>
+    <section class="footer1">
+      <div class="container copyright text-center">
+        🍋
+      </div>
+    </section>
+  </div>
+
+</body>
+
+<!-- Custom Javascript -->
+<script src="/js/index.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+</html>
